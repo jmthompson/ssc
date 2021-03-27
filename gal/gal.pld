@@ -1,0 +1,24 @@
+GAL22V10
+SSC
+
+/RES CTS RWB /DEVSEL /IOSEL /IOSTRB A3 A8 A9 A10 A11 GND
+NC NC NC /LATCHCE ROMA8 ROMA9 ROMA10 /ROMOE PHI2 D0 C8EN VCC
+
+PHI2 = DEVSEL
+
+C8EN = C8EN * /A8 * /A9 * /A10 * /A11 * /IOSTRB * /RES
+     + IOSEL
+ROMOE = C8EN * IOSTRB * RWB
+      + IOSEL * RWB
+ROMA8 = A8 + /A11
+ROMA9 = A9 + /A11 
+ROMA10 = A10 + /A11 
+
+D0.T = CTS
+D0.E = RWB * DEVSEL * /A3
+
+LATCHCE = DEVSEL + IOSEL + IOSTRB
+
+DESCRIPTION
+
+This implements all of the address decoding logic for the Simple Serial Card.

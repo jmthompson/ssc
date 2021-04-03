@@ -1,3 +1,6 @@
 *.bak
+*-bak
 *.bck
 *.sch-bak
+*.net
+plots/

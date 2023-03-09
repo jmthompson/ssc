@@ -32,7 +32,7 @@ Pin 18 = eprom_a9;
 Pin 19 = eprom_a10;
 Pin 20 = rom_enable;
 Pin 21 = PHI2;
-Pin 22 = d0;
+
 
 /*  Latch (RS flip-flop) definition:
     Q  = (Q & RESET) # !SET;
@@ -40,14 +40,17 @@ Pin 22 = d0;
 
 PHI2 = !slot_select; /* per schematic */
 
-cf00_access = io_C800 # !A8 # !A9 # !A10; /* CF00 access, pull low */
+cf00_access = io_C800 # !(A8 & A9 & A10); /* CF00 access, pull low */
 
 /* 
     if either reset or cf00 access is pulled low, then rom_latch = 1
     if io_slot_access is 0, then rom_latch = 0
     if io_slot_access is 1, then rom_latch = no change
 */
+
+/* Q = ROM_LATCH RESET = io_slot_access SET = (reset & cf00_access) */
 rom_latch = (rom_latch & io_slot_access) # !(reset & cf00_access);
+
 rom_c800_enable = rom_latch # io_C800; /* enable if both pulled low */
 
 ls245_enable = ( io_slot_access & rom_c800_enable & slot_select); /* c800 ? */

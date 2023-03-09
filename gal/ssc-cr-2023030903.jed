@@ -1,7 +1,7 @@
 
 CUPL(WM)        5.0a  Serial# 60008009
 Device          g22v10  Library DLIB-h-40-1
-Created         Thu Mar 09 15:25:03 2023
+Created         Fri Mar 10 06:33:40 2023
 Name            Simple Serial Card
 Partno          SSC0001
 Revision        01
@@ -57,4 +57,4 @@ Location        None
 *L05824 11110101001101010011010000110011
 *L05856 00000011000000110000001100010000
 *C7DCD
-*9CA3
+*9C8B

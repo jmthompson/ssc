@@ -24,7 +24,7 @@ with what made the layout easier.
 
 ## Parts List
 
-* A 74HCT245 octal bus transceiver (U1)
+* A 74LS245 octal bus transceiver (non-TTL appears to have issues with the ROM address decode logic) (U1)
 * A 28C256 EEPROM (U2)
 * A 1.8432 MHz 5V oscillator (U3)
 * A 22V10 GAL (any speed or variety should work) (U4)
